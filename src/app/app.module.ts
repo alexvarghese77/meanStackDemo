@@ -13,7 +13,7 @@ import {
   MatExpansionModule
 } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
-import { PostListComponent } from './post-list/post-list.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -35,4 +35,4 @@ import { PostListComponent } from './post-list/post-list.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
