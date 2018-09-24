@@ -8,12 +8,16 @@ import { Subscription } from 'rxjs'
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  post: Post[] = [];
+  // post: Post[] = [];
+  post: any = [];
   private postSub: Subscription;
   constructor(public postService: PostService) { }
 
   ngOnInit() {
-    this.post = this.postService.getPost();
+    this.post = this.postService.getPost().subscribe(posts => {
+      debugger;
+      this.post = posts;
+    });
     this.postSub = this.postService.getPostUpdateListener().subscribe((post: Post[]) => {
       this.post = post;
     })
