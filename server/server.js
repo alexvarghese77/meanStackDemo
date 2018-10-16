@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-
+const cors = require('cors')
 
 var index = require('./routes/index');
 var posts = require('./routes/posts');
@@ -13,18 +13,12 @@ var app = express();
 
 // //allow cross orgine
 
-// var allowCrossDomain = function (req, res, next) {
-//     res.header('Access-Control-Allow-Origin', "*");
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// }
+var corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
 
-
-// app.configure(function () {
-//     app.use(allowCrossDomain);
-//     //some other code
-// });
+app.use(cors(corsOptions))
 
 //view Engine
 

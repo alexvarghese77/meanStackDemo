@@ -12,8 +12,8 @@ router.get('/posts', (req, res, next) => {
             res.send("error")
         }
         res.json(posts)
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        // res.header("Access-Control-Allow-Origin", "*");
+        // res.header("Access-Control-Allow-Headers", "X-Requested-With");
     })
 });
 
