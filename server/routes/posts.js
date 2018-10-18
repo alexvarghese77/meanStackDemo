@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongojs = require('mongojs')
+var mongojs = require('mongojs');
 var db = mongojs('mongodb://xela:xela1234@ds251362.mlab.com:51362/postlist', ['posts'])
 
 
@@ -32,13 +32,14 @@ router.get('/posts/:id', (req, res) => {
 
 router.post('/savepost', (req, res) => {
     var postcontent = req.body;
-    console.log(postcontent)
+    console.log(postcontent);
+
     if (!postcontent.title || !postcontent.content) {
         res.status(400);
         res.json({ "error": "error" })
     }
     else {
-        db.post.save(postcontent, (err, post) => {
+        db.posts.save(postcontent, (err, post) => {
             if (err) {
                 res.send("erroroccured")
             }
