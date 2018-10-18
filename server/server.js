@@ -11,7 +11,7 @@ var port = 3000;
 var app = express();
 
 
-// //allow cross orgine
+//allow cross orgine
 
 var corsOptions = {
     origin: 'http://localhost:4200',
@@ -40,6 +40,5 @@ app.use('/api', posts);
 
 app.listen(port, () => {
     console.log("server started on port 3000");
-
 })
 

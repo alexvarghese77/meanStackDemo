@@ -22,13 +22,15 @@ export class PostService {
     addPost(title: string, contet: string) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let newPost: Post = { title: title, content: contet }
+        let newPost = { title: title, content: contet }
         let options = new RequestOptions({ headers: headers });
         this.http.post('http://localhost:3000/api/savepost', JSON.stringify(newPost), { headers: headers }).subscribe(data => {
             console.log(data);
+            this.getPost().subscribe(data => {
+
+                this.postUpdate.next([...data])
+            });
         })
-        //this.post.push(newPost);
-        //this.postUpdate.next([...this.post])
     }
 }
 
